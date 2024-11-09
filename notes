@@ -1,0 +1,24 @@
+
+Section 2 Lessons 11 & 12
+
+PS D:\repo> cd jobapp
+PS D:\repo\jobapp> python -m venv env
+PS D:\repo\jobapp> .\env\Scripts\activate
+
+(env) PS D:\repo\jobapp> pip3 install django
+
+<things happen>
+Successfully installed asgiref-3.8.1 django-5.1.3 sqlparse-0.5.1 tzdata-2024.2
+
+(env) PS D:\repo\jobapp> pip list
+Package  Version
+-------- -------
+asgiref  3.8.1
+Django   5.1.3
+pip      24.2
+sqlparse 0.5.1
+tzdata   2024.2
+(env) PS D:\repo\jobapp>
+
+(env) PS D:\repo\jobapp> django-admin.exe startproject jobapp .   #. on end doesn't create extra nested folder.
+
