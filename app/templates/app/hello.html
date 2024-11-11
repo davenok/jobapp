@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc you mint</title>
+</head>
+<body>
+    {% if is_authenticated %}
+        <h1>Hello {{name}}, you are {{age}}</h1>
+    {% else  %}
+        <h1>Hello World!</h1>
+    {% endif %}
+    <p>The time is: {{time}}</p>
+    <hr />
+    <p>First item on first_list: {{first_list.0}}</p>
+    <p>Iterating the first_list with django template for loop</p>
+    <ul>
+        {% for item in first_list %}
+            <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Filters: </strong></p>
+    <p>{{first_list|length}}</p>
+    <!-- <p> {first_list|length_is:"4"} </p>  length_is was deprecated  in Django 4.2 use == instead -->
+    
+
+    <p>The x attribute of temp_object is: {{temp_object.x}}</p>
+</body>
+</html>
