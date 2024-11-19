@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 #from django.template import loader
 from datetime import datetime #, time
+from app.models import JobPost
 
 # Create your views here.
 
@@ -37,16 +38,19 @@ def hello(request):
     return render(request, "app/hello.html", context) # replaces commented lines above
 
 def job_list(request):
-    context = {"job_titles":job_title}
+    jobs = JobPost.objects.all()
+    context = {"jobs":jobs}
     return render(request, "app/index.html", context)
 
 def job_detail(request, id):
     try:
-        if id == 0:
-            return redirect(reverse('jobs_home'))
+        #if id == 0:
+        #    return redirect(reverse('jobs_home'))
         # return_html = f"<h1>{job_title[id]}</h1> <h3>{job_description[id]}</h3>"
         # return HttpResponse(return_html)
-        context = {"job_title":job_title[id], "job_description":job_description[id]}
+        #context = {"job_title":job_title[id], "job_description":job_description[id]}
+        job = JobPost.objects.get(id = id)
+        context = {"job":job}
         return render(request, "app/job_detail.html", context)
     except:
         return HttpResponseNotFound("Not found")

@@ -8,9 +8,9 @@
 <body>
     <h1>Job Listings</h1>
     <ul>
-    {% for job in job_titles %}
-        <li>JOB: <a href = "{% url "jobs_detail" forloop.counter0 %}">{{job}}</a></li>
+    {% for job in jobs %}
+        <li>JOB: <a href = "{% url "jobs_detail" job.id %}">{{job.title}}</a></li>
     {% endfor %} 
     </ul>
 </body>
-</html>
+</html>  
